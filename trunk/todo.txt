@@ -20,3 +20,8 @@
 
 - allow sharing the database between users
 
+- put processNull and processNone in dbaccess
+
+- implement type checks
+
+- bug: when filters are on, if you create a new movie with a filtered status, you cannot edit it. Same if you edit the staus field.

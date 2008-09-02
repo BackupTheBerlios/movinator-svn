@@ -20,6 +20,8 @@ MOVIEDB = "moviedb.db"
 
 STATUS = {1: "IT", 2: "OT", 3: "S", 4: "FF"}
 
+RSTATUS = {"IT": 1, "OT": 2, "S": 3, "FF": 4}
+
 RECOMS = [("Recommender", ), ("GMRecommender", ), ("FreqRecommender", "'freqs.stat'")]
 
 FIELDS = ["status", "title", "year", "director", "original_title", "rating"]
@@ -74,6 +76,12 @@ def processNull(value):
     else:
         return value
 
+def processNone(value):
+    if value == "":
+        return None
+    else:
+        return value
+
 def fillGrid(grid, db):
     """Fills the grid with data from the movie database."""
     if grid.GetNumberRows() > 0:
@@ -91,13 +99,14 @@ def fillGrid(grid, db):
             grid.SetCellValue(grid.GetNumberRows()-1, r[0] + 5, str(r[1]))
             grid.SetCellValue(grid.GetNumberRows()-1, 11, str(state.recom.score(m)))
 
+    grid.SetColMinimalAcceptableWidth(10)
     grid.AutoSizeColumn(0)
     grid.AutoSizeColumn(5)
-    grid.AutoSizeColumn(6)
-    grid.AutoSizeColumn(7)
-    grid.AutoSizeColumn(8)
-    grid.AutoSizeColumn(9)
-    grid.AutoSizeColumn(10)
+    grid.SetColSize(6,40)
+    grid.SetColSize(7,40)
+    grid.SetColSize(8,40)
+    grid.SetColSize(9,40)
+    grid.SetColSize(10,40)
     grid.AutoSizeColumn(11)
 
     state.last_visible = grid.GetNumberRows()-1
@@ -108,13 +117,37 @@ def saveGrid(grid, db):
     for m in state.edited:
         r = findMovie(grid, m[0])
         if m[1] <= 5:
-            db.updateMovie(m[0], FIELDS[m[1]], grid.GetCellValue(r, m[1]))
+            print m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])]
+            db.updateMovie(m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])])
         else:
-            db.updateRating(m[0], m[1] - 5, grid.GetCellValue(r, m[1]))
+            if grid.GetCellValue(r, m[1]) == "":
+                db.delRating(m[0], m[1] - 5)
+            else:
+                db.updateRating(m[0], m[1] - 5, grid.GetCellValue(r, m[1]))
         grid.SetCellBackgroundColour(r, m[1], wx.WHITE)
     
     for m in state.deleted:
         db.delMovie(m)
+
+    if state.new_count > 0:
+        for i in xrange(grid.GetNumberRows()):
+            if "+" in grid.GetRowLabelValue(i):
+                mid = db.insMovie(
+                    processNone(grid.GetCellValue(i, 1)),
+                    processNone(grid.GetCellValue(i, 2)),
+                    processNone(grid.GetCellValue(i, 3)),
+                    processNone(grid.GetCellValue(i, 4)),
+                    processNone(grid.GetCellValue(i, 5)),
+                    RSTATUS[grid.GetCellValue(i, 0)])
+                for j in xrange(1,6):
+                    if grid.GetCellValue(i, j + 5) != "":
+                        db.updateRating(
+                            mid,
+                            j,
+                            grid.GetCellValue(i, j + 5))
+                grid.SetRowLabelValue(i, str(mid))
+                for j in xrange(grid.GetNumberCols()):
+                    paintCell(grid, str(mid), i, j)
 
     grid.ForceRefresh()
 
@@ -179,13 +212,15 @@ def chooseRecom(rec, db):
         recString = recString + ", " + ", ".join(RECOMS[rec][1:])
     recString = recString + ")"
     state.recom = eval(recString)
+    print state.recom
 
 def reScore(grid, db):
     """Recomputes all recommendations."""
     for i in xrange(grid.GetNumberRows()):
         if "+" not in grid.GetRowLabelValue(i):
             m = db.getMovie(grid.GetRowLabelValue(i))
-            grid.SetCellValue(i, 11, str(state.recom.score(m)))
+            if len(m["ratings"]) > 0:
+                grid.SetCellValue(i, 11, str(state.recom.score(m)))
 
 def isVisible(grid, row):
     """Checks if a cell is visible, according to the status filters."""
@@ -298,9 +333,9 @@ class Movinator(wx.Frame):
         at.SetEditor(wx.grid.GridCellNumberEditor(0,9999))
         self.grid_1.SetColAttr(2, at)
 
-        # Number editor for ratings
+        # Choice editor for ratings
         at = self.grid_1.GetOrCreateCellAttr(0, 0).Clone()
-        at.SetEditor(wx.grid.GridCellNumberEditor(0,5))
+        at.SetEditor(wx.grid.GridCellChoiceEditor(["", "0", "1", "2", "3", "4", "5"]))
         self.grid_1.SetColAttr(5, at)
         self.grid_1.SetColAttr(6, at)
         self.grid_1.SetColAttr(7, at)
@@ -407,15 +442,10 @@ class Movinator(wx.Frame):
 
     def save(self, event): # wxGlade: Movinator.<event_handler>
         saveGrid(self.grid_1, self.dba)
-        return
-
-        msg = wx.MessageDialog(self, "", "Save changes to database?", wx.YES|wx.NO_DEFAULT)
-        if msg.ShowModal() == wx.ID_YES:
-            saveGrid(self.grid_1, self.dba)
-            state.edited = []
-            state.deleted = []
-            state.new_count = 0
-            self.enableUndo(False)
+        state.edited = []
+        state.deleted = []
+        state.new_count = 0
+        self.enableUndo(False)
 
     def undo(self, event): # wxGlade: Movinator.<event_handler>
         if state.last_action == 1:
@@ -436,8 +466,12 @@ class Movinator(wx.Frame):
         self.enableUndo(False)
 
     def revert(self, event): # wxGlade: Movinator.<event_handler>
-        msg = wx.MessageDialog(self, "Revert and loose changes?", "Revert", wx.YES|wx.NO_DEFAULT)
-        if msg.ShowModal() == wx.ID_YES:
+        rep = wx.ID_NO
+        if len(state.edited) > 0 or len(state.deleted) > 0 or \
+                state.new_count > 0:
+            msg = wx.MessageDialog(self, "Revert and loose changes?", "Revert", wx.YES|wx.NO_DEFAULT)
+            rep = msg.ShowModal()
+        if rep == wx.ID_YES:
             state.edited = []
             state.deleted = []
             state.new_count = 0
@@ -446,8 +480,14 @@ class Movinator(wx.Frame):
             hideRows(self.grid_1)
 
     def quit(self, event): # wxGlade: Movinator.<event_handler>
-        self.dba.closeDB()
-        self.Close(True)
+        rep = wx.ID_YES
+        if len(state.edited) > 0 or len(state.deleted) > 0 or \
+                state.new_count > 0:
+            msg = wx.MessageDialog(self, "Quit and loose changes?", "Quit", wx.YES|wx.NO_DEFAULT)
+            rep = msg.ShowModal()
+        if rep == wx.ID_YES:
+            self.dba.closeDB()
+            self.Close(True)
 
     def sort(self, event): # wxGlade: Movinator.<event_handler>
         if event.GetCol() >= 0:
