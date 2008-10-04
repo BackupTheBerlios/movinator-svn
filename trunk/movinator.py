@@ -114,16 +114,23 @@ def fillGrid(grid, db):
 
 def saveGrid(grid, db):
     """Saves the changes in the grid to the database."""
+#    print state.edited
     for m in state.edited:
         r = findMovie(grid, m[0])
-        if m[1] <= 5:
-#            print m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])]
+        if m[1] == 0:
             db.updateMovie(m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])])
-        else:
-            if grid.GetCellValue(r, m[1]) == "":
-                db.delRating(m[0], m[1] - 5)
+        else: 
+            if m[1] <= 5:
+#                print m[0]
+#                print FIELDS[m[1]]
+#                print grid.GetCellValue(r, m[1])
+#                print RSTATUS[grid.GetCellValue(r, m[1])]
+                db.updateMovie(m[0], FIELDS[m[1]], grid.GetCellValue(r, m[1]))
             else:
-                db.updateRating(m[0], m[1] - 5, grid.GetCellValue(r, m[1]))
+                if grid.GetCellValue(r, m[1]) == "":
+                    db.delRating(m[0], m[1] - 5)
+                else:
+                    db.updateRating(m[0], m[1] - 5, grid.GetCellValue(r, m[1]))
         grid.SetCellBackgroundColour(r, m[1], wx.WHITE)
     
     for m in state.deleted:
