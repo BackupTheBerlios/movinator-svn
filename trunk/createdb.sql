@@ -3,7 +3,7 @@ drop table critic;
 drop table rates;
 
 create table movie (
-       mid integer primary key autoincrement,
+       mid integer primary key,
        title text not null,
        year integer,
        director text,
@@ -15,8 +15,13 @@ create table movie (
        check (status >= 1 and status <= 4)
 );
 
+-- 1 = c
+-- 2 = f
+-- 3 = v
+-- 4 = a
+
 create table critic (
-       cid integer primary key autoincrement,
+       cid integer primary key,
        initials text unique not null,
        name text
 );

@@ -1,0 +1,20 @@
+createdb.sql                 sql code to create the database
+moviedb.db                  movie (sqlite) database
+movinator-gui.wxg       wxpython gui definition file
+ 
+freqrecom.py                frequency-based recommender module
+freqs.stat                      data for the frequency-based recommender
+
+movinator.py                the main program
+
+dbaccess.py                 database access functions             
+
+recom.py                      base reccomender (average recommender and geometric 
+                                    mean reccomender)
+
+todo.txt                        stuff todo (on a short term)
+
+movinator.mm              mindmap for the project
+
+
+* all the rest are temporary files

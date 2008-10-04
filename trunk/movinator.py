@@ -117,7 +117,7 @@ def saveGrid(grid, db):
     for m in state.edited:
         r = findMovie(grid, m[0])
         if m[1] <= 5:
-            print m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])]
+#            print m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])]
             db.updateMovie(m[0], FIELDS[m[1]], RSTATUS[grid.GetCellValue(r, m[1])])
         else:
             if grid.GetCellValue(r, m[1]) == "":
@@ -212,7 +212,7 @@ def chooseRecom(rec, db):
         recString = recString + ", " + ", ".join(RECOMS[rec][1:])
     recString = recString + ")"
     state.recom = eval(recString)
-    print state.recom
+#    print state.recom
 
 def reScore(grid, db):
     """Recomputes all recommendations."""
@@ -354,6 +354,10 @@ class Movinator(wx.Frame):
         self.choice_1.Select(0)
         chooseRecom(0, self.dba)
 
+        # Puts the intials of the critics in the columns
+        for i, c in enumerate(self.dba.getCritics()):
+            self.grid_1.SetColLabelValue(i + 6, c[1])
+
         # Fills the grid with movies from the database
         fillGrid(self.grid_1, self.dba)
 
@@ -453,7 +457,7 @@ class Movinator(wx.Frame):
             mid = self.grid_1.GetRowLabelValue(state.last_info[0])
             state.edited.remove((mid, state.last_info[1]))
             paintCell(self.grid_1, mid, state.last_info[0], state.last_info[1])
-            print state.edited
+#            print state.edited
         elif state.last_action == 2:
             row = state.last_info.pop(0)
             unshiftRows(self.grid_1, row)
@@ -462,7 +466,7 @@ class Movinator(wx.Frame):
                 self.grid_1.SetCellValue(row, j, state.last_info[j + 1])
                 paintCell(self.grid_1, state.last_info[0], row, j)
             state.deleted.remove(state.last_info[0])
-            print state.deleted
+#            print state.deleted
         self.enableUndo(False)
 
     def revert(self, event): # wxGlade: Movinator.<event_handler>
@@ -510,8 +514,8 @@ class Movinator(wx.Frame):
                 state.last_info.append(self.grid_1.GetCellValue(row,i))
             self.enableUndo(True)
             shiftRows(self.grid_1, row)
-            print state.last_info
-            print state.deleted
+#            print state.last_info
+#            print state.deleted
 
     def new(self, event): # wxGlade: Movinator.<event_handler>
         state.new_count = state.new_count + 1
@@ -549,9 +553,9 @@ class Movinator(wx.Frame):
         self.enableUndo(False)
 
     def select(self, event): # wxGlade: Movinator.<event_handler>
-        print self.previous_cell, (event.GetRow(), event.GetCol()), state.last_visible, state.first_visible
+#        print self.previous_cell, (event.GetRow(), event.GetCol()), state.last_visible, state.first_visible
         if self.ignore_select:
-            print "ignorado"
+#            print "ignorado"
             self.ignore_select = False
             event.Skip()
             return
@@ -565,12 +569,12 @@ class Movinator(wx.Frame):
             event.Skip()
         else:
             dir = (self.previous_cell[0] < event.GetRow()) and 1 or -1
-            print "dir ", dir
+#            print "dir ", dir
             next_x = event.GetRow() + dir
             while next_x > 0 and next_x < self.grid_1.GetNumberRows() and\
                     not isVisible(self.grid_1, next_x):
                 next_x = next_x + dir
-            print "next: ", next_x
+#            print "next: ", next_x
             self.ignore_select = True
             self.previous_cell = (next_x, event.GetCol())
             self.grid_1.MakeCellVisible(next_x, event.GetCol())
@@ -586,8 +590,8 @@ class Movinator(wx.Frame):
         state.last_action = 1
         state.last_info = (event.GetRow(), event.GetCol(), self.last_edit)
         self.enableUndo(True)
-        print state.last_info
-        print state.edited
+#        print state.last_info
+#        print state.edited
 
     def editStart(self, event): # wxGlade: Movinator.<event_handler>
         self.last_edit = self.grid_1.GetCellValue(event.GetRow(), event.GetCol())
