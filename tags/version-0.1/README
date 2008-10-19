@@ -1,0 +1,56 @@
+* The Movinator *
+
+ABOUT
+
+The Movinator is a small database application. It stores information about
+movies, including critic ratings and the user´s rating. Using these it is able
+to make reccomendations, predicting what would be the user´s rating for a yet
+unseen movie.
+
+More info can be obtained at http://movinator.berlios.de
+
+Or you can contact me, Pavel Calado, at caladopc@users.berlios.de
+
+
+INSTALLING
+
+Note: these instructions are for GNU/Linux, but should be easy enough to adapt
+for other operating systems.
+
+1. Install the required libraries/applications:
+
+           Python: http://www.python.org/
+           WxPython: http://wxpython.org/
+           SQLite: http://www.sqlite.org/
+
+2. Unpack the tarball
+
+          tar -xzvf movinator-v0.1.tgz
+
+3. Create the database
+
+          sqlite3 moviedb.db ".read createdb.sql"
+
+4. Execute the application
+
+           ./movinator.py
+
+   Note: make sure the file "movinator.py" is executable (e.g., by doing chmod
+   u+x movinator.py)
+
+
+LICENSE
+
+Copyright 2008 Pavel Calado
+
+Movinator is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
