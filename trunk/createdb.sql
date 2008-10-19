@@ -1,6 +1,6 @@
-drop table movie;
-drop table critic;
-drop table rates;
+drop table if exists movie;
+drop table if exists critic;
+drop table if exists rates;
 
 create table movie (
        mid integer primary key,
