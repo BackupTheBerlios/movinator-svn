@@ -5,13 +5,13 @@
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
 <node COLOR="#0033ff" CREATED="1223140923653" FOLDED="true" ID="_" MODIFIED="1223141215444" POSITION="right" TEXT="About">
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1223140926479" ID="Freemind_Link_707363057" MODIFIED="1223141215456" TEXT="What it is">
+<node COLOR="#00b439" CREATED="1223140926479" FOLDED="true" ID="Freemind_Link_707363057" MODIFIED="1223141215456" TEXT="What it is">
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1223140929711" ID="Freemind_Link_264512020" MODIFIED="1223141215487" TEXT="The Movinator is a small database application. It stores information about movies, including critic ratings and the user&#xb4;s rating. Using these it is able to make reccomendations, predicting what would be the user&#xb4;s rating for a yet unseen movie.">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1223141027163" ID="Freemind_Link_189633068" MODIFIED="1223141215560" TEXT="Present and Future">
+<node COLOR="#00b439" CREATED="1223141027163" FOLDED="true" ID="Freemind_Link_189633068" MODIFIED="1223141215560" TEXT="Present and Future">
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1223141065857" ID="Freemind_Link_1539337623" MODIFIED="1223141215607" TEXT="The Movinator was made for my personal use and is, therefore, very personalized. I intend to make it more general, but this will be a slow process.">
 <font NAME="SansSerif" SIZE="14"/>
@@ -38,21 +38,24 @@
 </node>
 <node COLOR="#0033ff" CREATED="1223141694787" FOLDED="true" ID="Freemind_Link_811679423" MODIFIED="1223141697478" POSITION="left" TEXT="Requirements">
 <font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1223141790904" ID="Freemind_Link_765999290" MODIFIED="1223141792354" TEXT="OS">
+<node COLOR="#00b439" CREATED="1223141790904" FOLDED="true" ID="Freemind_Link_765999290" MODIFIED="1223141792354" TEXT="OS">
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1223141734120" ID="Freemind_Link_1794189155" MODIFIED="1223141795152" TEXT="The Movinator is implemented in Python, so it should be able to run on any operating system">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
-<node COLOR="#990000" CREATED="1223141769383" ID="Freemind_Link_1926283595" MODIFIED="1223141797466" TEXT="It was tested on MacOS X and Linux (Debian)">
+<node COLOR="#990000" CREATED="1223141769383" ID="Freemind_Link_1926283595" MODIFIED="1224416466967" TEXT="It was tested on MacOS X (10.4.2) and GNU/Linux (Debian Lenny)">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1223141799310" ID="Freemind_Link_84876278" MODIFIED="1223141800898" TEXT="Libraries">
+<node COLOR="#00b439" CREATED="1223141799310" FOLDED="true" ID="Freemind_Link_84876278" MODIFIED="1224416354811" TEXT="Libraries/Applications">
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1223141801622" ID="Freemind_Link_1853925539" MODIFIED="1223142035969" TEXT="SQLite 3 Python module">
+<node COLOR="#990000" CREATED="1224347468467" ID="Freemind_Link_1137239409" LINK="http://www.sqlite.org/" MODIFIED="1224416400834" TEXT="SQLite &gt;= 3.5">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
-<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" MODIFIED="1223141918614" TEXT="WxPython">
+<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" LINK="http://www.wxpython.org/" MODIFIED="1224416384354" TEXT="WxPython &gt;= 2.6">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1224416358227" ID="Freemind_Link_1759387097" LINK="http://www.python.org" MODIFIED="1224416411333" TEXT="Python &gt;= 2.5">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>

@@ -44,17 +44,9 @@
 
 <!-- content -->
 
-<APPLET CODE="freemind.main.FreeMindApplet.class"
-        ARCHIVE="freemindbrowser.jar" WIDTH="100%" HEIGHT="100%">
-    <PARAM NAME="type" VALUE="application/x-java-applet;version=1.4">
-    <PARAM NAME="scriptable" VALUE="false">
-    <PARAM NAME="modes" VALUE="freemind.modes.browsemode.BrowseMode">
-    <PARAM NAME="browsemode_initial_map"
-         VALUE="http://movinator.berlios.de/movinator.mm">
-    <!--          ^ Put the path to your map here  -->
-    <param NAME="initial_mode" VALUE="Browse">
-    <param NAME="selection_method" VALUE="selection_method_direct">
-</applet>
+<iframe src="movinator.html" width="100%" height="79%" frameborder="0">
+    <a href="movinator.html">Hmm, you are using a very old browser. Click here to go directly to included content.</a>
+</iframe>
 
 <!-- end content -->
 
