@@ -27,11 +27,53 @@
 </node>
 </node>
 </node>
+<node COLOR="#0033ff" CREATED="1223141438956" ID="Freemind_Link_1556327994" LINK="http://developer.berlios.de/projects/movinator" MODIFIED="1223141453160" POSITION="right" TEXT="Project page">
+<font NAME="SansSerif" SIZE="18"/>
+</node>
+<node COLOR="#0033ff" CREATED="1223141559423" FOLDED="true" ID="Freemind_Link_859550803" MODIFIED="1223141564418" POSITION="right" TEXT="Files">
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1223141593029" ID="Freemind_Link_733444883" LINK="http://developer.berlios.de/project/showfiles.php?group_id=9959" MODIFIED="1224433119350" TEXT="Dowloads">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1223141565055" ID="Freemind_Link_770897112" LINK="http://svn.berlios.de/wsvn/movinator" MODIFIED="1224433570746" TEXT="Browse SVN">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1224433102922" FOLDED="true" ID="Freemind_Link_105673374" MODIFIED="1224433110868" TEXT="Latest SVN snapshot">
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1224433149070" ID="Freemind_Link_333949169" MODIFIED="1224433151661" TEXT="svn co svn://svn.berlios.de/movinator/trunk movinator">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1223141694787" FOLDED="true" ID="Freemind_Link_811679423" MODIFIED="1223141697478" POSITION="right" TEXT="Requirements">
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1223141790904" FOLDED="true" ID="Freemind_Link_765999290" MODIFIED="1223141792354" TEXT="OS">
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1223141734120" ID="Freemind_Link_1794189155" MODIFIED="1223141795152" TEXT="The Movinator is implemented in Python, so it should be able to run on any operating system">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1223141769383" ID="Freemind_Link_1926283595" MODIFIED="1224416466967" TEXT="It was tested on MacOS X (10.4.2) and GNU/Linux (Debian Lenny)">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1223141799310" FOLDED="true" ID="Freemind_Link_84876278" MODIFIED="1224429510899" TEXT="Libraries/Applications">
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1224347468467" ID="Freemind_Link_1137239409" LINK="http://www.sqlite.org/" MODIFIED="1224416400834" TEXT="SQLite &gt;= 3.5">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" LINK="http://www.wxpython.org/" MODIFIED="1224416384354" TEXT="WxPython &gt;= 2.6">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1224416358227" ID="Freemind_Link_1759387097" LINK="http://www.python.org" MODIFIED="1224416411333" TEXT="Python &gt;= 2.5">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
 <node COLOR="#0033ff" CREATED="1223141676547" FOLDED="true" ID="Freemind_Link_411972078" MODIFIED="1223141681246" POSITION="right" TEXT="User Manual">
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1224429410728" ID="Freemind_Link_1182590708" MODIFIED="1224429413866" TEXT="Instalation">
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1224429448079" ID="Freemind_Link_368562265" LINK="#Freemind_Link_84876278" MODIFIED="1224429666827" TEXT="Install the required libraries/applications">
+<node COLOR="#990000" CREATED="1224429448079" ID="Freemind_Link_368562265" MODIFIED="1224433941567" TEXT="Install the required libraries/applications">
 <arrowlink COLOR="#e71414" DESTINATION="Freemind_Link_84876278" ENDARROW="Default" ENDINCLINATION="74;-295;" ID="Freemind_Arrow_Link_1518643708" STARTARROW="None" STARTINCLINATION="-85;-327;"/>
 <font NAME="SansSerif" SIZE="14"/>
 <icon BUILTIN="full-1"/>
@@ -55,42 +97,6 @@
 </node>
 <node COLOR="#00b439" CREATED="1224429679934" ID="Freemind_Link_784221220" MODIFIED="1224429681169" TEXT="Usage">
 <font NAME="SansSerif" SIZE="16"/>
-</node>
-</node>
-<node COLOR="#0033ff" CREATED="1223141438956" ID="Freemind_Link_1556327994" LINK="http://developer.berlios.de/projects/movinator" MODIFIED="1223141453160" POSITION="left" TEXT="Project page">
-<font NAME="SansSerif" SIZE="18"/>
-</node>
-<node COLOR="#0033ff" CREATED="1223141559423" FOLDED="true" ID="Freemind_Link_859550803" MODIFIED="1223141564418" POSITION="left" TEXT="Files">
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1223141565055" ID="Freemind_Link_770897112" LINK="http://svn.berlios.de/svnroot/repos/movinator/" MODIFIED="1223141577546" TEXT="Browse SVN">
-<font NAME="SansSerif" SIZE="16"/>
-</node>
-<node COLOR="#00b439" CREATED="1223141593029" ID="Freemind_Link_733444883" LINK="http://developer.berlios.de/project/showfiles.php?group_id=9959" MODIFIED="1223141605771" TEXT="Dowloads">
-<font NAME="SansSerif" SIZE="16"/>
-</node>
-</node>
-<node COLOR="#0033ff" CREATED="1223141694787" FOLDED="true" ID="Freemind_Link_811679423" MODIFIED="1223141697478" POSITION="left" TEXT="Requirements">
-<font NAME="SansSerif" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1223141790904" FOLDED="true" ID="Freemind_Link_765999290" MODIFIED="1223141792354" TEXT="OS">
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1223141734120" ID="Freemind_Link_1794189155" MODIFIED="1223141795152" TEXT="The Movinator is implemented in Python, so it should be able to run on any operating system">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1223141769383" ID="Freemind_Link_1926283595" MODIFIED="1224416466967" TEXT="It was tested on MacOS X (10.4.2) and GNU/Linux (Debian Lenny)">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-</node>
-<node COLOR="#00b439" CREATED="1223141799310" FOLDED="true" ID="Freemind_Link_84876278" MODIFIED="1224429510899" TEXT="Libraries/Applications">
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1224347468467" ID="Freemind_Link_1137239409" LINK="http://www.sqlite.org/" MODIFIED="1224416400834" TEXT="SQLite &gt;= 3.5">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" LINK="http://www.wxpython.org/" MODIFIED="1224416384354" TEXT="WxPython &gt;= 2.6">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1224416358227" ID="Freemind_Link_1759387097" LINK="http://www.python.org" MODIFIED="1224416411333" TEXT="Python &gt;= 2.5">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
 </node>
 </node>
 <node COLOR="#0033ff" CREATED="1223141668371" FOLDED="true" ID="Freemind_Link_174797764" MODIFIED="1223141670862" POSITION="right" TEXT="Screenshots">
