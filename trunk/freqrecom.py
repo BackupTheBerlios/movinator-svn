@@ -42,8 +42,7 @@ class FreqRecommender(Recommender):
         Recommender.__init__(self, db)
         self.file = file
         self.wri = {}
-        if os.path.isfile(file):
-            self.__readStats(self.file)
+        self.__readStats(self.file)
 
     def needsLearning(self):
         return True
@@ -77,9 +76,12 @@ class FreqRecommender(Recommender):
         return score / sum
 
     def __readStats(self, file):
-        f = open(file, "r")
-        self.wri = pickle.load(f)
-        f.close()
+        if os.path.isfile(file):
+            f = open(file, "r")
+            self.wri = pickle.load(f)
+            f.close()
+        else:
+            self.learn()
 
     def __saveStats(self, file):
         f = open(file, "w")
