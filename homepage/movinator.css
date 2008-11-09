@@ -1,0 +1,8 @@
+/* news items */
+
+dt
+{
+    color: DarkRed;
+    text-decoration: underline;
+    font-weight: bold;
+}
