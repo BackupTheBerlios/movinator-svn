@@ -26,6 +26,12 @@ create table critic (
        name text
 );
 
+insert into critic values(1, "C1", "Critic 1");
+insert into critic values(2, "C2", "Critic 2");
+insert into critic values(3, "C3", "Critic 3");
+insert into critic values(4, "C4", "Critic 4");
+insert into critic values(5, "C5", "Critic 5");
+
 create table rates (
        cid integer,
        mid integer,

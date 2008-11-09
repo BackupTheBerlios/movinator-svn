@@ -96,7 +96,11 @@ class DBAccess:
         """Returns the maximum id of the movies in the database."""
         cur = self.con.cursor()
         cur.execute("select max(mid) from movie")
-        return cur.fetchone()[0]
+        mid = cur.fetchone()[0]
+        if mid == None:
+            return 0
+        else:
+            return mid
 
     def updateMovie(self, mid, field, value):
         """Updates a field in a movie in the database."""
