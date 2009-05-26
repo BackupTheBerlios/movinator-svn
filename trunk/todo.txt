@@ -29,4 +29,6 @@
 
 - implement type checks
 
+- search
+
 - bug: when filters are on, if you create a new movie with a filtered status, you cannot edit it. Same if you edit the staus field.
