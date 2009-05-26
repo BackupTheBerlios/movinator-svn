@@ -1,4 +1,4 @@
-<map version="0.8.0">
+<map version="0.8.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node COLOR="#000000" CREATED="1223139482497" ID="Freemind_Link_1149052339" MODIFIED="1223141215711" TEXT="The Movinator">
 <font NAME="SansSerif" SIZE="20"/>
@@ -61,10 +61,10 @@
 <node COLOR="#990000" CREATED="1224347468467" ID="Freemind_Link_1137239409" MODIFIED="1226254412854" TEXT="&lt;html&gt;&lt;a href=&quot;http://www.sqlite.org/&quot; target=&quot;_top&quot;&gt;SQLite &gt;= 3.5&lt;/a&gt;">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
-<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" MODIFIED="1226254421719" TEXT="&lt;html&gt;&lt;a href=&quot;http://www.wxpython.org/&quot; target=&quot;_top&quot;&gt;WxPython &gt;= 2.6">
+<node COLOR="#990000" CREATED="1223141911826" ID="Freemind_Link_223101406" MODIFIED="1243331834264" TEXT="&lt;html&gt;&lt;a href=&quot;http://www.wxpython.org/&quot; target=&quot;_top&quot;&gt;WxPython &gt;= 2.6&lt;/a&gt;">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
-<node COLOR="#990000" CREATED="1224416358227" ID="Freemind_Link_1759387097" MODIFIED="1226254430279" TEXT="&lt;html&gt;&lt;a href=&quot;http://www.python.org&quot; target=&quot;_top&quot;&gt;Python &gt;= 2.5">
+<node COLOR="#990000" CREATED="1224416358227" ID="Freemind_Link_1759387097" MODIFIED="1243331825087" TEXT="&lt;html&gt;&lt;a href=&quot;http://www.python.org&quot; target=&quot;_top&quot;&gt;Python &gt;= 2.5&lt;/a&gt;">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
